@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:study_riverpod/layout/default_layout.dart';
-import 'package:study_riverpod/riverpod/state_provider_screen.dart';
+import 'package:study_riverpod/riverpod/state_provider.dart';
 
 class StateProviderScreen extends ConsumerWidget {
   const StateProviderScreen({super.key});
@@ -25,6 +25,13 @@ class StateProviderScreen extends ConsumerWidget {
                 ref.read(numberProvider.notifier).update((state) => state + 1);
               },
               child: const Text('UP'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(numberProvider.notifier).state =
+                    ref.read(numberProvider.notifier).state - 1;
+              },
+              child: const Text('DOWN'),
             ),
             ElevatedButton(
               onPressed: () {
